@@ -8,6 +8,10 @@ export default class IntenseService extends cds.ApplicationService {
             return ZGP_PM_INTENSE_SRV.run(req.query);
         });
 
+        this.on('CREATE', 'LinkEquipementEANSet', async (req) => {
+            return ZGP_PM_INTENSE_SRV.run(req.query);
+        });
+
         await super.init();
     }
 }
