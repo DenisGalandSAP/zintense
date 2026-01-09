@@ -1,0 +1,53 @@
+{
+  "name": "zintense",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@sap/cds": "^9",
+    "express": "^4",
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap-cloud-sdk/resilience": "^4",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
+    "@cap-js/cds-types": "^0.15.0",
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
+    "@sap/dev-cap-tools": "^1.31.0",
+    "@types/node": "^24.0.0",
+    "tsx": "^4",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "deploy": "cf deploy mta_archives/zintense_1.0.0.mtar",
+    "undeploy": "cf undeploy zintense --delete-services --delete-service-keys"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "ZGP_PM_INTENSE_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/ZGP_PM_INTENSE_SRV",
+        "[production]": {
+          "credentials": {
+            "destination": "DTA310-PP",
+            "path": "/sap/opu/odata/sap/ZGP_PM_INTENSE_SRV"
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "connectivity": true,
+      "destinations": true
+    }
+  },
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  }
+}

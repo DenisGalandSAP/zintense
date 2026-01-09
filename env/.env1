@@ -1,0 +1,3 @@
+destinations='[{"name":"DTA310-PP","url":"https://DTA310-PP.dest","proxyHost":"http://127.0.0.1","proxyPort":"8887"}]'
+cds_requires='{"ZGP_PM_INTENSE_SRV":{"impl":"@sap/cds/srv/remote-service.js","external":true,"kind":"odata-v2","model":"srv/external/ZGP_PM_INTENSE_SRV","credentials":{"destination":"DTA310-PP","path":"/sap/opu/odata/sap/ZGP_PM_INTENSE_SRV"}},"auth":{"strategy":"dummy","kind":"dummy"},"messaging":{"kind":"local-messaging"}}'
+VCAP_SERVICES='{}'
