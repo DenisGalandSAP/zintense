@@ -1,7 +1,13 @@
 {
-    "welcomeFile": "/odata/v4/intense/LinkEquipementEANSet",
+    "welcomeFile": "/$api-docs/odata/v4/intense/",
     "authenticationMethod": "route",
     "routes": [
+        {
+            "source": "^/\\$api-docs/?$",
+            "localDir": ".",
+            "target": "swagger-redirect.html",
+            "authenticationType": "xsuaa"
+        },
         {
             "source": "^/(.*)$",
             "target": "/$1",
