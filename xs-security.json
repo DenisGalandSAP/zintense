@@ -7,6 +7,5 @@
     "redirect-uris": [
       "https://*.cfapps.eu10-004.hana.ondemand.com/**"
     ]
-  },
-  "authorities-inheritance": false
+  }
 }
